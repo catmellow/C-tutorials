@@ -43,7 +43,7 @@ Then the returned list from ApplySale()should be as follows;
 
 ![](https://i.imgur.com/6yHnwNs.png)
 
-```c=
+```c
 #include<stdio.h>
 #include<stdlib.h>
 
