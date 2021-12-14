@@ -3,9 +3,9 @@
 
 **Purpose:**
 This writeup contains.
-1. static vs. dynamic memory allocation
-2. traversal of linked lists
-3. simple algorithms and pointer manipulation for linked lists
+1. Static vs. dynamic memory allocation
+2. Traversal of linked lists
+3. Simple algorithms and pointer manipulation for linked lists
 
 A linked list is recursively defined as
 *  an empty list, or
