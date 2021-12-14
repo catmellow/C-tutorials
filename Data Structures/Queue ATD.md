@@ -32,7 +32,7 @@ For implementing Queue, we need to keep track of two indices, front, and rear. W
 
 **Example Code**
 
-```c=
+```c
 #include<stdio.h>
 #include<stdlib.h>
 #include<limits.h>
@@ -153,7 +153,7 @@ There are two pointers in the linked queue in the memory, i.e., front pointer an
 ![](https://i.imgur.com/CaT71ZJ.png)
 
 **Example Code**
-```c=
+```c
 // A C program to demonstrate linked list based implementation of queue
 #include <stdio.h>
 #include <stdlib.h>
