@@ -1,6 +1,6 @@
 # Data Structures – Programming Exercise
 ## InstuctorBook
-This exercise aims to help you practice linked list data structure and basic linked list operations. The main task in this assignment is to write a C program to create a simple application that will allow you to manage information about instructors. The InstructorBook will include the list of instructors with their details (first name, last name, title, email, phone number, and room number). It will help you manage your list of instructors, where you can add an instructor, find the details of an instructor, and delete an instructor from your instructor list.
+This exercise aims to help you practice linked list data structure and basic linked list operations. The main task in this assignment is to write a C program to create a simple application that will allow you to manage information about instructors. The InstructorBook will include the list of instructors with their details (first name, last name, title, email, phone number, and room number). It will help you manage the list of instructors, where you can add an instructor, find the details of an instructor, and delete an instructor from your instructor list.
 
 When the C program is run, the InstructorBook will first create a linked list of the instructors, which is initialized by reading the details of your instructors from an external text file. Then the program will provide some operations for you to manage the InstructorBook. Therefore, the program needs to support the following procedures. 
 
