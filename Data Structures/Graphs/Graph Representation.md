@@ -75,9 +75,13 @@ i/j : 1 2 3 4
 The adjacency matrix of the following graph is:
 
 i/j: 1 2 3 4
+
 1 : 0 1 0 0
+
 2 : 0 0 0 1
+
 3 : 1 0 0 1
+
 4 : 0 1 0 0
 
 ![](https://i.imgur.com/pni8FUO.jpg)
