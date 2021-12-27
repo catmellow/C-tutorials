@@ -1,4 +1,4 @@
-#Depth First Search (DFS)
+# Depth First Search (DFS)
 
 The DFS algorithm is a recursive algorithm that uses the idea of backtracking. It involves exhaustive searches of all the nodes by going ahead, if possible, or backtracking.
 Here, the word backtrack means that when you are moving forward, and there are no more nodes along the current path, you move backward on the same path to find nodes to traverse. All the nodes will be visited on the current path till all the unvisited nodes have been traversed, after which the following way will be selected.
