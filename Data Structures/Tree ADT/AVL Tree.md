@@ -162,7 +162,7 @@ Insert node with the value 92 into the tree shown in the following figure.
 
 
 
-| Column 1 | Column 2 | 
+| Scheme | Definition | 
 | -------- | -------- | 
 | ![](https://i.imgur.com/tUpqYwN.jpg)| A node B has been inserted into the left subtree of C the right subtree of A. Because of which A has become an unbalanced node having a balance factor - 2. This case is RL rotation where: Inserted node is in the left subtree of right subtree of A     |
 | ![](https://i.imgur.com/wxkvvxN.jpg)| As **RL rotation = LL rotation + RR rotation**, LL (clockwise) on subtree rooted at C is performed first. By doing RR rotation, node C has become the right subtree of B.     |
