@@ -26,7 +26,7 @@ int main()
 	*/
 
 
-    //Worksheet 7 - Part 2-2 - Question h
+    
     /*
     int toss;
     srand(time(NULL));
@@ -37,7 +37,7 @@ int main()
 		printf("TAIL\n");
 	*/
 
-    //Worksheet 7 - Part 2-2 - Question i
+   
     /*
     int toss,i;
     srand(time(NULL));
