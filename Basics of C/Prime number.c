@@ -10,7 +10,7 @@
 int main()
 {
     //Prime Number
-    /*
+    
     int n;
     printf("Enter n:");
     scanf("%d",&n);
@@ -27,7 +27,7 @@ int main()
 
 
     
-    /*
+    
     int toss;
     srand(time(NULL));
     toss = (int) rand() % 2;
@@ -35,10 +35,10 @@ int main()
        printf("HEAD\n");
     else
 		printf("TAIL\n");
-	*/
+	
 
     
-    /*
+    
     int toss,i;
     srand(time(NULL));
 	int i;
@@ -52,5 +52,5 @@ int main()
 			noTail++;
 	}
 	printf("\nHead=%d, Tail=%d\n",noHead,noTail);
-	*/
+	
 }
