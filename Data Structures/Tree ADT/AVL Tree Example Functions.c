@@ -83,117 +83,115 @@ AVLTree MakeEmptyTree(AVLTree t)
 	return NULL;
 }
 
-AVLTree InsertElement(int val, AVLTree t)
-{
-	if (t == NULL)
-	{
-		/*Create and return a one-node tree */
-		t = malloc(sizeof(struct Node));
-		if (t == NULL)
-			printf("Out of memory space!!!\n");
-		else
-		{
-			t->val = val; t->height = 0;
-			t->left = t->right = NULL;
-		}
-	}
-	else if (val<t->val)
-	{
-		t->left = InsertElement(val, t->left);
+AVLTree InsertElement(int val, AVLTree t) {
+    if (t == NULL) {
+        /*Create and return a one-node tree */
+        t = (struct Node *)malloc(sizeof(struct Node));
+        if (t == NULL){
+            printf("Could not allocate!\n");
+        }
+        else {
+            t->val = val;
+            t->height = 0;
+            t->left = NULL;
+            t->right = NULL;
+        }
+    }
+    else if (val<t->val) {
+        t->left = InsertElement(val, t->left);
+        if (AVLTreeHeight(t->left) - AVLTreeHeight(t->right) == 2){
+            if (val < t->left->val) {
+                t = SingleRotateWithLeft(t);
+                // single right rotation
+            }
+            else{
+                t = DoubleRotateWithLeft(t);
+                // left right rotation
+            }
+         }
+    }
+    else if (val > t->val){
+        t->right = InsertElement(val, t->right);
+        if (AVLTreeHeight(t->right) - AVLTreeHeight(t->left) == 2){
+            if (val > t->right->val){
+                t = SingleRotateWithRight(t);
+                // single left rotation
+            }
+            else{
+                t = DoubleRotateWithRight(t);
+                // right left rotation
+            }
 
-		if (AVLTreeHeight(t->left) - AVLTreeHeight(t->right) == 2)
-		if (val < t->left->val)
-			t = SingleRotateWithLeft(t);
-		else
-			t = DoubleRotateWithLeft(t);
-	}
-	else if (val > t->val)
-	{
-		t->right = InsertElement(val, t->right);
-		if (AVLTreeHeight(t->right) - AVLTreeHeight(t->left) == 2)
-		if (val > t->right->val)
-			t = SingleRotateWithRight(t);
-		else
-			t = DoubleRotateWithRight(t);
-	}
-	/* else val is in the tree already ... do nothing */
-	t->height = Max(AVLTreeHeight(t->left), AVLTreeHeight(t->right)) + 1;
+        }
+    }
+    /* else val is in the tree already ... do nothing */
+    t->height = Max(AVLTreeHeight(t->left), AVLTreeHeight(t->right)) + 1;
 
-	return t;
+    return t;
 }
 
-void DisplayTree(AVLTree t)
-{
-	if (t != NULL)
-	{
-		DisplayTree(t->left);
-		printf("%d\n", t->val);
-		DisplayTree(t->right);
-	}
+void DisplayTree(AVLTree t){
+    if (t != NULL){
+        DisplayTree(t->left);
+        printf("%d\n", t->val);
+        DisplayTree(t->right);
+    }
+}
+void DisplayTreeStructure(AVLTree t, int depth){
+    int i;
+    if (t != NULL){
+        DisplayTreeStructure(t->right, depth + 1);
+        for (i = 0; i < depth; i++)
+            printf("     ");
+        printf("%d\n", t->val);
+        DisplayTreeStructure(t->left, depth + 1);
+    }
+}
+int AVLTreeHeight(AVLTree t){
+    if (t == NULL){
+        return -1;
+    }
+    else{
+        return t->height;
+    }
 }
 
-void DisplayTreeStructure(AVLTree t, int depth)
-{
-	int i;
 
-	if (t != NULL)
-	{
-		DisplayTreeStructure(t->right, depth + 1);
-
-		for (i = 0; i < depth; i++)
-			printf("     ");
-		printf("%d\n", t->val);
-
-		DisplayTreeStructure(t->left, depth + 1);
-	}
+AVLTree SingleRotateWithRight(AVLTree k1) {
+    // single left rotation
+    // temp == k2
+    struct Node* temp = NULL;
+    temp = k1->right;
+    k1->right = temp->left;
+    temp->left = k1;
+    k1->height = AVLTreeHeight(k1);
+    temp->height=AVLTreeHeight(temp);
+    return temp;
 }
 
-int AVLTreeHeight(AVLTree t)
-{
-	if (t == NULL)
-		return -1;
-	else
-		return t->height;
+AVLTree SingleRotateWithLeft(AVLTree k2) {
+    // single right rotation
+    // temp == k1
+    struct Node* temp = NULL;
+    temp = k2->left;
+    k2->left = temp->right;
+    temp->right = k2;
+    k2->height = AVLTreeHeight(k2);
+    temp->height=AVLTreeHeight(temp);
+    return temp;
 }
 
-AVLTree SingleRotateWithLeft(AVLTree k2)
-{
-	AVLTree k1;
-	k1 = k2->left;
-	k2->left = k1->right;
-	k1->right = k2;
+AVLTree DoubleRotateWithLeft(AVLTree k3) {
+    // left right rotation
+    // Rotate between k1 and k2
+    k3->left = SingleRotateWithRight(k3->left);
 
-	k2->height = Max(AVLTreeHeight(k2->left),AVLTreeHeight(k2->right))+1;
-	k1->height = Max(AVLTreeHeight(k1->left),k2->height)+1;
-
-	return k1;
+    // Rotate between K3 and k2
+    return SingleRotateWithLeft(k3);
 }
 
-AVLTree SingleRotateWithRight(AVLTree k1)
-{
-	AVLTree k2;
-	k2 = k1->right;
-	k2->right = k2->left;
-	k2->left = k1;
-	// adjusting heights
-
-	k1->height = Max(AVLTreeHeight(k1->left),AVLTreeHeight(k1->right))+1;
-	k2->height = Max(AVLTreeHeight(k2->right),k1->height)+1;
-
-	k2;
-}
-
-AVLTree DoubleRotateWithLeft(AVLTree k3)
-{
-	k3->left = SingleRotateWithRight(k3->left);
-	return SingleRotateWithLeft(k3);
-
-
-}
-
-AVLTree DoubleRotateWithRight(AVLTree k3)
-{
-	// right left rotation
+AVLTree DoubleRotateWithRight(AVLTree k3) {
+    // right left rotation
     // rotate between K3 and k2
     k3->right = SingleRotateWithLeft(k3->right);
 
@@ -201,10 +199,11 @@ AVLTree DoubleRotateWithRight(AVLTree k3)
     return SingleRotateWithRight(k3);
 }
 
-int Max(int x, int y)
-{
-	if (x >= y)
-		return x;
-	else
-		return y;
+int Max(int x, int y) {
+    if (x >= y){
+        return x;
+    }
+    else{
+        return y;
+    }
 }
