@@ -157,19 +157,8 @@ int AVLTreeHeight(AVLTree t){
 }
 
 
-AVLTree SingleRotateWithRight(AVLTree k1) {
-    // single left rotation
-    // temp == k2
-    struct Node* temp = NULL;
-    temp = k1->right;
-    k1->right = temp->left;
-    temp->left = k1;
-    k1->height = AVLTreeHeight(k1);
-    temp->height=AVLTreeHeight(temp);
-    return temp;
-}
-
-AVLTree SingleRotateWithLeft(AVLTree k2) {
+AVLTree SingleRotateWithRight(AVLTree k1) 
+{
     // single right rotation
     // temp == k1
     struct Node* temp = NULL;
@@ -177,6 +166,20 @@ AVLTree SingleRotateWithLeft(AVLTree k2) {
     k2->left = temp->right;
     temp->right = k2;
     k2->height = AVLTreeHeight(k2);
+    temp->height=AVLTreeHeight(temp);
+    return temp;
+	
+}
+
+AVLTree SingleRotateWithLeft(AVLTree k2) 
+{
+    // single left rotation
+    // temp == k2
+    struct Node* temp = NULL;
+    temp = k1->right;
+    k1->right = temp->left;
+    temp->left = k1;
+    k1->height = AVLTreeHeight(k1);
     temp->height=AVLTreeHeight(temp);
     return temp;
 }
