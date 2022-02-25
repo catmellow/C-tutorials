@@ -1,0 +1,5 @@
+Beverly Hills; 90210; United States; California; Los Angeles
+Santa Monica; 90404; United States; California; Los Angeles
+Long Beach; 90802; United States; California; Los Angeles
+Oceanside; 92054; United States; California; San Diego
+Orlando; 32808; United States; Florida; Orange
