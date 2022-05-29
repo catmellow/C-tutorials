@@ -46,16 +46,6 @@ Several features have been included in the C language with the introduction of t
 | To be announced     | [C2x](https://en.wikipedia.org/wiki/C2x)     | 
 
 
-
-> :bulb: The "hello, world" example, which appeared in the first edition of K&R, has become the model for an introductory program in most programming textbooks.
-
-
-
-| ![](https://i.imgur.com/yZ0YEkT.jpg) |   ![](https://i.imgur.com/a925In9.png)|
-| ------------------------------------ | --- |
-|            "Hello, World!" program by [Brian Kernighan](https://en.wikipedia.org/wiki/Brian_Kernighan) (1978)                          |   (Compiler) Original Version |
-
-
  
 ---
 
